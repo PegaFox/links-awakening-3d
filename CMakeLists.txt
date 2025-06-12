@@ -25,7 +25,7 @@ file(
 
 add_executable(main main.cpp glad/glad.c imgui/imgui.cpp imgui/imgui_widgets.cpp imgui/imgui_draw.cpp imgui/imgui_tables.cpp imgui/imgui_impl_opengl3.cpp imgui/imgui_impl_glfw.cpp)
 
-target_include_directories(main PRIVATE glm imgui)
+target_include_directories(main PRIVATE . glm imgui)
 
 target_link_directories(main PRIVATE ${CMAKE_SOURCE_DIR}/../opengl_utils/build)
 
