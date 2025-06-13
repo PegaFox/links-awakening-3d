@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.24)
 
 project(Link's_awakening_3D)
 
+add_subdirectory(glfw)
+
 file(
   COPY ${CMAKE_CURRENT_SOURCE_DIR}/imgui/backends/imgui_impl_opengl3.h
   DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/imgui
@@ -27,6 +29,6 @@ add_executable(main main.cpp glad/glad.c imgui/imgui.cpp imgui/imgui_widgets.cpp
 
 target_include_directories(main PRIVATE . glm imgui glfw/include)
 
-target_link_directories(main PRIVATE ${CMAKE_SOURCE_DIR}/../opengl_utils/build)
+target_link_directories(main PRIVATE ${CMAKE_SOURCE_DIR}/../opengl_utils/build ${CMAKE_BUILD_DIR}/glfw/src)
 
 target_link_libraries(main glfw GL X11 assimp pfgl)
